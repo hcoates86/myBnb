@@ -15,6 +15,13 @@
   float: right;
 }
 
+#newSpotText {
+  color: teal;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-right: 1em;
+}
+
 .active {
     text-decoration: none;
     color: black;
@@ -32,3 +39,34 @@
     height: 64px;
 }
 
+.profile-dropdown > li {
+  text-decoration: none;
+  list-style: none;
+  padding-bottom: 5px;
+}
+
+.profile-dropdown {
+  display: block;
+  border-radius: 2%;
+  border: 3px solid black;
+  height: auto;
+  min-width: 80px;
+  width: 8em;
+  background-color: white;
+  padding: 8%;
+}
+
+.manageText {
+  text-decoration: none;
+  border-top: 2px solid black;
+  color: black;
+}
+
+#logout {
+  border-top: 1px solid black;
+  border: 1px solid black;
+  border-radius: 45%;
+  padding: 10px;
+  color: white;
+  background-color: rgb(99, 99, 99);
+}
