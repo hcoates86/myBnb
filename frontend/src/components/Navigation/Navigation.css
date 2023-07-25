@@ -1,5 +1,6 @@
 .navbar {
   display: inline-block;
+  position: sticky;
   width: 100%;
   border-bottom: solid 2px rgb(159, 159, 159);
   height: 80px;
@@ -17,6 +18,7 @@
 
 .right-nav {
   float: right;
+  margin-right: 20px;
 }
 
 #newSpotText {
@@ -36,9 +38,9 @@
     text-decoration: none;
     color: black;
     font-family: 'Gloria Hallelujah', cursive;
-    font-size: 2em;
+    font-size: 1.9em;
     position: absolute;
-  top: 18px;
+  top: 20px;
   left: 85px;
 }
 
@@ -66,6 +68,7 @@
   width: 8em;
   background-color: white;
   padding: 8%;
+  text-align: center;
 }
 
 .manageText {
