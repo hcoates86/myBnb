@@ -1,10 +1,14 @@
 .navbar {
-    position: sticky;
-    border-bottom: solid 2px rgb(159, 159, 159);
-    height: 100px;
-    list-style-type: none;
-    margin-bottom: 30px;
-    padding: 0;
+  display: inline-block;
+  width: 100%;
+  border-bottom: solid 2px rgb(159, 159, 159);
+  height: 80px;
+  margin-bottom: 30px;
+  vertical-align: center;
+}
+
+.navbar > ul {
+  list-style-type: none;
 }
 
 .left-nav {
@@ -20,6 +24,7 @@
   font-weight: 500;
   font-family: Arial, Helvetica, sans-serif;
   margin-right: 1em;
+  text-decoration: none;
 }
 
 .active {
@@ -28,16 +33,23 @@
 }
 
 #logobnb {
-    display: inline-block;
     text-decoration: none;
     color: black;
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 2em;
+    position: absolute;
+  top: 18px;
+  left: 85px;
 }
 
 .navlogo-container {
-    display: inline-block;
-    height: 64px;
+  height: 64px;
+}
+
+.logo-nav {
+  position: absolute;
+  top: 15px;
+  left: 20px;
 }
 
 .profile-dropdown > li {
@@ -78,5 +90,5 @@
 .menu-button {
   border: 2px solid black;
   padding: 5px;
-  border-radius: 45%;
+  border-radius: 50%;
 }
