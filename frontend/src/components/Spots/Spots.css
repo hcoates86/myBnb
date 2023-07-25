@@ -1,0 +1,170 @@
+#indexBox {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 3rem;
+}
+  
+#outer-box {
+  width: 1000px;
+  margin: auto;
+  border-bottom: black solid 2px;
+}
+
+.grid-container {
+  display: grid;
+  height: 500px;
+  max-width: 1000px;
+  grid-template-areas:
+    "prev prev a b"
+    "prev prev c d";
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+.grid-container > img {
+  object-fit: cover;
+  width: 248px;
+  height: 248px;
+  margin: 2px;
+}
+
+#preview {
+  grid-area: prev;
+  width: 500px;
+  height: 500px;
+}
+
+.reserve {
+  float: right;
+  width: 400px;
+  padding: 12px;
+  border: solid black 3px;
+  border-radius: 15px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.reserve > p {
+  display: inline-block;
+}
+
+.price > span {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.res-reviews {
+  margin-left: 10em;
+}
+
+#reserveButton {
+  padding: 15px;
+  width: 350px;
+  color: white;
+  background-color: salmon;
+  box-shadow: 2px 2px 0px black;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+}
+
+.borderBox {
+  border-bottom: solid;
+}
+
+#star {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-right: 2px;
+}
+
+.spotDesc {
+  display: block;
+  width: 600px;
+  min-height: 180px;
+}
+
+  #display {
+    display: block;
+  }
+
+  .outer {
+    text-align: center;
+  }
+
+  .inner {
+  width: 1000px;
+  text-align: center;
+  }
+
+  label > .txtInput {
+    margin-left: 10px;
+    
+  }
+
+  #price {
+    display: inline-block;
+  }
+
+  .errors {
+    color: red
+}
+
+
+.imgtop {
+  height: 350px;
+  width: 350px;
+}
+
+.spotBox {
+  margin: 2em;
+}
+
+.marginForCard {
+  margin: 15px;
+}
+
+.thumbnail {
+  width: 350px;
+  height: 300px;
+  margin-bottom: 5px;
+  object-fit: cover;
+}
+
+.infoBox {
+  display: block;
+  height: 100x;
+  width: 350px;
+}
+
+.infoBox-left{
+  display: inline-block;
+  text-align: left;
+  width: 48%;
+}
+
+.infoBox-right {
+  text-align: right;
+  display: inline-block;
+  width: 49%;
+  vertical-align: 17px;
+}
+
+.infoBox p {
+  margin-top: 5px;
+  line-height: 8px;
+}
+
+#cash {
+  font-weight: 600;
+}
+
+.location, .stars {
+  font-size: 17px;
+}
+
+#indexBox a {
+  display: flex;
+}

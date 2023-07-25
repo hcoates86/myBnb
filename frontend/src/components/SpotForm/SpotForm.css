@@ -1,0 +1,63 @@
+.borderBox {
+  border-bottom: solid 2px;
+  padding-bottom: 2em;
+  padding-top: 1em;
+}
+
+#display {
+  display: block;
+}
+
+.outer {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+
+.inner {
+width: 500px;
+display: inline-block;
+text-align: start;
+}
+
+
+.txtInput {
+  margin-left: 10px;
+  width: 100%;
+  display: inline-block;
+  padding: 3px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+}
+
+.city-state {
+display: inline;
+width: 1000px;
+}
+
+#city {
+width: 68%;
+}
+
+#state {
+width: 28%;
+}
+
+#createButton {
+  padding: 12px;
+  border: solid black 2px;
+  width: 200px;
+  box-shadow: 4px 4px 0px black;
+  background-color: salmon;
+  color: white;
+  margin: 15px;
+}
+
+.errors {
+  margin: 0;
+  padding: 0;
+}
+
+.txtInput {
+  display: inline-block;
+}
