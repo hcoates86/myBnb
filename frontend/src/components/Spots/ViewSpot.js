@@ -128,7 +128,7 @@ const ViewSpot = () => {
             <></>
           ) : (
           <>       
-            <Link to={`api/spots/${spot.id}/reviews`}> <button className='review-button'>Post Your Review</button></Link>
+            <Link to={`/spots/${spot.id}/reviews`}> <button className='review-button'>Post Your Review</button></Link>
             
             
           </>
