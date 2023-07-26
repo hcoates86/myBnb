@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { removeSpot, getUserSpots } from '../../store/spots';
-import { getUserReviews, getSpotReviews } from '../../store/reviews';
-// import SpotsIndexItem from '../Spots/SpotsIndexItem';
+import { getUserReviews } from '../../store/reviews';
+import { getSpots } from '../../store/spots';
 import OpenModalMenuItem from '../Navigation/OpenModalMenuItem';
 import ConfirmDeleteReviewModal from '../ConfirmDeleteReviewModal';
 
@@ -25,6 +24,7 @@ const ManageReviews = () => {
 
     useEffect(() => {
         dispatch(getUserReviews())
+        dispatch(getSpots())
     }, [dispatch]);
 
     // useEffect(() => {
@@ -37,6 +37,11 @@ const ManageReviews = () => {
       if (+num < 10) num = num[1];
       return months[+num]
     }
+
+    function spotNameFinder(reviewId) {
+        const spotName = spots.filter((spot) => spot.id === reviewId)
+        return spotName[0].name;
+    }
     
     return (
         <div>
@@ -45,7 +50,7 @@ const ManageReviews = () => {
             <div className='indexBox'>
             {userReviews.map((review) => (
                 <div id='review-box' key={review.id}>
-                <p className='review-text'>{review.User.firstName}</p>
+                <p className='review-text'> {spotNameFinder(review.id)}</p>
                 <p className='review-text grey'>{monthConverter(review.createdAt.split('-')[1])} {review.createdAt.split('-')[0]}</p>
                 <p>{review.review}</p>
                 <Link to={`/reviews/${review.id}`} key={review.id}><button>Update</button></Link>
