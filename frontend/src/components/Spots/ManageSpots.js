@@ -56,4 +56,4 @@ const ManageSpots = () => {
 
 }
 
-export default ManageSpots
+export default ManageSpots;

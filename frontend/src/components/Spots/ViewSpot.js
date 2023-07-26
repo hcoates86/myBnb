@@ -5,6 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchSpot } from '../../store/spots';
 import { getUserReviews, getSpotReviews } from '../../store/reviews';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import OpenModalMenuItem from '../Navigation/OpenModalMenuItem';
+import ConfirmDeleteReviewModal from '../ConfirmDeleteReviewModal';
+
 
 
 const ViewSpot = () => {
@@ -124,7 +128,8 @@ const ViewSpot = () => {
             <></>
           ) : (
           <>       
-            <button className='review-button'>Post Your Review</button>
+            <Link to={`api/spots/${spot.id}/reviews`}> <button className='review-button'>Post Your Review</button></Link>
+            
             
           </>
           )}
@@ -142,12 +147,14 @@ const ViewSpot = () => {
             <p className='review-text'>{review.User.firstName}</p>
             <p className='review-text grey'>{monthConverter(review.createdAt.split('-')[1])} {review.createdAt.split('-')[0]}</p>
             <p>{review.review}</p>
-            { review.userId === user.id ? 
-           (
-            <></>
-          ) : (
-            <button className='button-grey'>Delete</button>
-          ) 
+            { review.userId === user?.id ? 
+            (
+            <OpenModalMenuItem
+                itemText="Delete"
+                modalComponent={<ConfirmDeleteReviewModal reviewId={review.id} />}
+                />
+          ) :
+          (<></>) 
           }
             </div>
           ))}
