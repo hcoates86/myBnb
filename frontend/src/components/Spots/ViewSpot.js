@@ -62,9 +62,7 @@ const ViewSpot = () => {
       else setReviewExists(false);
     }, [userReviews, user])
 
-    useEffect(() => {
-
-    })
+  
 
     useEffect(()=> {
       if (user && spot && spot.ownerId === user.id) {
@@ -81,11 +79,17 @@ const ViewSpot = () => {
     
     let avgStarS;
   
-    //useeffect this?
+    //useeffect this? maybe if only reviewer deletes theirs--check
     if (!spot.avgStarRating) {
         avgStarS = "New"
     } else avgStarS = spot.avgStarRating.toFixed(1)
 
+    const months = ['0', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    function monthConverter(num) {
+      if (+num < 10) num = num[1];
+      return months[+num]
+    }
     
       return (
         <>
@@ -114,13 +118,13 @@ const ViewSpot = () => {
             <p>{spot.description}</p>
             </div>
         </div>
-        <div id='review-box'>
+        <div>
           <h1><span id="star2">★</span> {avgStarS} &#183; {spot.numReviews} {numReviewsS}</h1>
           {thisUser && reviewExists && !user ? (
             <></>
           ) : (
           <>       
-            <button>Post Your Review</button>
+            <button className='review-button'>Post Your Review</button>
             
           </>
           )}
@@ -132,12 +136,23 @@ const ViewSpot = () => {
             </>
           )}
           
+       
           {reviews.map(review => (
-            <div key={review.id}>
-            <h2>{review.User.firstName} {review.createdAt.split('-')[1]} {review.createdAt.split('-')[0]}</h2>
+            <div id='review-box' key={review.id}>
+            <p className='review-text'>{review.User.firstName}</p>
+            <p className='review-text grey'>{monthConverter(review.createdAt.split('-')[1])} {review.createdAt.split('-')[0]}</p>
             <p>{review.review}</p>
+            { review.userId === user.id ? 
+           (
+            <></>
+          ) : (
+            <button className='button-grey'>Delete</button>
+          ) 
+          }
             </div>
           ))}
+     
+
         </div>
         </>
       )

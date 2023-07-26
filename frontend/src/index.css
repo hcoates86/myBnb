@@ -5,12 +5,18 @@ h1, h2, h3 {
 
 .errors {
     color: red
-  }
+}
 
-  .hidden {
-    display: none;
-  }
+.hidden {
+  display: none;
+}
 
-  .modal-input {
-    background-color: lightblue;
-  }
+.modal-input {
+  background-color: lightblue;
+}
+
+.button-grey {
+  padding: 5px;
+  color: white;
+  background-color: rgb(99, 99, 99);
+}

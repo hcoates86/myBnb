@@ -168,3 +168,24 @@
 #indexBox a {
   display: flex;
 }
+
+.review-text {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+.grey {
+  color: grey;
+}
+
+h1, h2, h3 {
+  font-weight: 500;
+}
+
+.review-button {
+  margin-bottom: 5%;
+}
+
+#review-box {
+  margin-bottom: 3%;
+}
