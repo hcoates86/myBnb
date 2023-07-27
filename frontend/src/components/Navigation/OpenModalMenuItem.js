@@ -14,10 +14,13 @@ function OpenModalMenuItem({
     setModalContent(modalComponent);
     if (onItemClick) onItemClick();
   };
-
-  if (itemText === 'Delete') {
+  if (itemText === "Post Your Review") {
+    return (
+    <button onClick={onClick} className='button-grey review-button'>Post Your Review</button>
+    )
+  } if (itemText === 'Delete') {
   return (
-  <button onClick={onClick} className='button-grey butt-pad' >Delete</button>
+  <button onClick={onClick} className='button-grey butt-pad'>Delete</button>
   )
 } else return (
     <li onClick={onClick}>{itemText}</li>

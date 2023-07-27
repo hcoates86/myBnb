@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import OpenModalMenuItem from '../Navigation/OpenModalMenuItem';
 import ConfirmDeleteReviewModal from '../ConfirmDeleteReviewModal';
+import ReviewModal from '../ReviewModal';
 
 
 
@@ -33,9 +34,7 @@ const ViewSpot = () => {
       dispatch(fetchSpot(spotId));
       dispatch(getSpotReviews(spotId)); //might have to place in own useeffect to see review changes on post
       dispatch(getUserReviews());
-    }, [dispatch, spot])
-
-    
+    }, [dispatch, spot]);
 
     const user = useSelector((state) => {
       return state.session.user
@@ -129,8 +128,11 @@ const ViewSpot = () => {
           {thisUser && reviewExists && !user ? (
             <></>
           ) : (
-          <>       
-            <button className='button-grey review-button'>Post Your Review</button>
+          <>
+          <OpenModalMenuItem
+                itemText="Post Your Review"
+                modalComponent={<ReviewModal spotId={spot.id}/>}
+                />
             
             
           </>

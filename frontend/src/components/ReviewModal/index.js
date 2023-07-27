@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { postReview } from '../../store/reviews';
 import { useModal } from "../../context/Modal";
@@ -7,11 +7,15 @@ function ReviewModal({spotId}) {
     const dispatch = useDispatch();
     const { closeModal } = useModal();
     const [errors, setErrors] = useState({});
-    const [disabled, setDisabled] = useState(true)
+    const [disabled, setDisabled] = useState(true);
     const [review, setReview] = useState('');
+    const [stars, setStars] = useState(null);
+  const [buttonClass, setButtonClass] = useState('');
+
 
     useEffect(()=> {
-
+        const errorObj = {};
+        setErrors(errorObj)
         if (!Object.values(errorObj).length) {
             setDisabled(false);
             setButtonClass('button-orange')
@@ -22,10 +26,11 @@ function ReviewModal({spotId}) {
     }, [])
 
 
-
+//★☆
 
     const postYourReview = () => {
-      return (dispatch(postReview(review))).then(closeModal)
+       const newReview = {...review, ...stars, spotId}
+       return (dispatch(postReview(newReview))).then(closeModal)
     };
   
 
@@ -33,6 +38,8 @@ function ReviewModal({spotId}) {
         <div className="del-modal">
         <h1>How was your stay?</h1>
         <p className='errors'></p>
+        {console.log('error-log!!!', errors)}
+        <p>{errors.message}</p>
         <textarea 
             className='txtInput' 
             value={review}
@@ -40,7 +47,8 @@ function ReviewModal({spotId}) {
             rows="8" cols="65"
             placeholder='Leave your review here...'
         />
-        <button disabled={disabled} onClick={postYourReview} className='button-orange'>Submit Your Review</button>
+        <p className='starSelect'><span className='star-indiv'>☆</span><span className='star-indiv'>☆</span></p>
+        <button disabled={disabled} onClick={postYourReview} id='postRevButton' className={buttonClass}>Submit Your Review</button>
         </div>
     )
 }

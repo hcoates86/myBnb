@@ -25,3 +25,16 @@
     border: 5px solid black;
     border-radius: 3%;
   }
+
+  .starSelect {
+    font-size: 2em;
+    margin: 5px;
+}
+
+/* .starSelect:hover {
+} */
+
+#postRevButton {
+  padding: 5px;
+  margin-bottom: 15px;
+}

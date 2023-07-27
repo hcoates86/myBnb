@@ -27,18 +27,22 @@ const removeReview = (reviewId) => {
     }
 }
 
-const postNewReview = (review) => {
+const postNewReview = (newReview) => {
     return {
         type: POST_REVIEW,
-        review
+        newReview
     }
 }
 
-export const postReview = (review) => async (dispatch) => {
-    const { spotId } = useParams();
+export const postReview = (newReview) => async (dispatch) => {
+    // const { spotId } = useParams();
+    const { review, stars, spotId } = newReview;
     const res = await csrfFetch(`api/spots/${spotId}/reviews`, {
         method: 'POST',
-        body: JSON.stringify(review)
+        body: JSON.stringify({
+            review, 
+            stars
+        })
     });
     if (res.ok) {
         const review = await res.json();
