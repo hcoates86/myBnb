@@ -24,15 +24,18 @@ const ViewSpot = () => {
 
     const alertP = () => alert('Feature Coming Soon...');
 
-    useEffect(() => {
-      dispatch(fetchSpot(spotId));
-      dispatch(getSpotReviews(spotId)); //might have to place in own useeffect to see review changes on post
-      dispatch(getUserReviews());
-    }, [dispatch, spotId])
 
     const spot = useSelector((state) => {
     return state.spots.singleSpot;
     })
+    
+    useEffect(() => {
+      dispatch(fetchSpot(spotId));
+      dispatch(getSpotReviews(spotId)); //might have to place in own useeffect to see review changes on post
+      dispatch(getUserReviews());
+    }, [dispatch, spot])
+
+    
 
     const user = useSelector((state) => {
       return state.session.user
@@ -128,7 +131,7 @@ const ViewSpot = () => {
             <></>
           ) : (
           <>       
-            <Link to={`/spots/${spot.id}/reviews`}> <button className='review-button'>Post Your Review</button></Link>
+            <Link to={`/spots/${spot.id}/reviews`}> <button className='button-grey review-button'>Post Your Review</button></Link>
             
             
           </>
