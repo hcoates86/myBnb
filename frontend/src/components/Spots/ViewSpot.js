@@ -28,7 +28,7 @@ const ViewSpot = () => {
     const spot = useSelector((state) => {
     return state.spots.singleSpot;
     })
-    
+
     useEffect(() => {
       dispatch(fetchSpot(spotId));
       dispatch(getSpotReviews(spotId)); //might have to place in own useeffect to see review changes on post
@@ -86,7 +86,6 @@ const ViewSpot = () => {
     
     let avgStarS;
   
-    //useeffect this? maybe if only reviewer deletes theirs--check
     if (!spot.avgStarRating) {
         avgStarS = "New"
     } else avgStarS = spot.avgStarRating.toFixed(1)
@@ -131,7 +130,7 @@ const ViewSpot = () => {
             <></>
           ) : (
           <>       
-            <Link to={`/spots/${spot.id}/reviews`}> <button className='button-grey review-button'>Post Your Review</button></Link>
+            <button className='button-grey review-button'>Post Your Review</button>
             
             
           </>

@@ -38,11 +38,11 @@ const ManageReviews = () => {
       return months[+num]
     }
 
+    if (!spots) return null;
+
     function spotNameFinder(reviewId) {
-        if (spots) {
             const spotName = spots.filter((spot) => spot.id === reviewId)
             return spotName[0].name;
-        } else return null;
     }
     
     return (
@@ -55,7 +55,7 @@ const ManageReviews = () => {
                 <p className='review-text'> {spotNameFinder(review.id)}</p>
                 <p className='review-text grey'>{monthConverter(review.createdAt.split('-')[1])} {review.createdAt.split('-')[0]}</p>
                 <p>{review.review}</p>
-                <Link to={`/reviews/${review.id}`} key={review.id}><button>Update</button></Link>
+                <Link to={`/reviews/${review.id}`} key={review.id}><button className='button-grey butt-pad'>Update</button></Link>
                 <OpenModalMenuItem
                 itemText="Delete"
                 modalComponent={<ConfirmDeleteReviewModal reviewId={review.id} />}

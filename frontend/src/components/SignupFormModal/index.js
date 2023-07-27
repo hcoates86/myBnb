@@ -18,6 +18,7 @@ function SignupFormModal() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
   const [disabled, setDisabled] = useState(true);//this, & make it gray when disabled
+  const [buttonClass, setButtonClass] = useState('');
 
 
   const { closeModal } = useModal();
@@ -34,8 +35,13 @@ function SignupFormModal() {
     if (password !== confirmPassword) errorObj['confirmPassword'] = 'Passwords must match';
     if (password.length < 6) errorObj['password'] = "Password must be at least 6 characters long"
     setErrors(errorObj)
-    if (!Object.values(errorObj).length) setDisabled(false);
-    if (Object.values(errorObj).length) setDisabled(true);
+    if (!Object.values(errorObj).length) {
+      setDisabled(false);
+      setButtonClass('button-orange')
+    } if (Object.values(errorObj).length) {
+      setDisabled(true)
+      setButtonClass('');
+    };
     }, [username, email, firstName, lastName, password, confirmPassword])
 
 
@@ -99,7 +105,7 @@ function SignupFormModal() {
         <label>
           <input className='signup-input'
             placeholder="Email"
-            type="text"
+            type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -110,7 +116,7 @@ function SignupFormModal() {
         <label>
           <input className='signup-input'
             placeholder="Username"
-            type="email"
+            type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
@@ -141,7 +147,7 @@ function SignupFormModal() {
         {errors.confirmPassword && (
           <p className='errors'>{errors.confirmPassword}</p>
         )}
-        <button id='signup-button' className='button-orange' type="submit" disabled={disabled}>Sign Up</button>
+        <button id='signup-button' className={buttonClass} type="submit" disabled={disabled}>Sign Up</button>
       </form>
     </div></div>
   );
