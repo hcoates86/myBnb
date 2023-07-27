@@ -21,4 +21,43 @@ h1, h2, h3 {
   padding: 5px;
   color: white;
   background-color: rgb(99, 99, 99);
+  box-shadow: 4px 4px 0px black;
+  cursor: pointer;
+  border: solid black 2px;
+
+}
+
+.button-orange {
+  color: white;
+  background-color: rgb(249, 96, 79);
+  box-shadow: 4px 4px 0px black;
+  cursor: pointer;
+  border: solid black 2px;
+}
+
+.del-modal {
+  height: auto;
+  width: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+  text-align: center;
+ 
+}
+
+#modal-content {
+  line-height: 250%;  
+  border: 5px solid black;
+  border-radius: 3%;
+}
+
+.butt-pad {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.delbutt {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
 }

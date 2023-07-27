@@ -17,7 +17,7 @@ function OpenModalMenuItem({
 
   if (itemText === 'Delete') {
   return (
-  <button onClick={onClick}>Delete</button>
+  <button onClick={onClick} className='button-grey butt-pad' >Delete</button>
   )
 } else return (
     <li onClick={onClick}>{itemText}</li>

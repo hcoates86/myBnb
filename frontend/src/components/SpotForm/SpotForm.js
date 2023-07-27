@@ -245,7 +245,7 @@ const SpotForm = () => {
             </div>
 
         <div>
-        <input type='submit' id='createButton' value='Create Spot' />
+        <input type='submit' className='button-orange' id='createButton' value='Create Spot' />
         </div>
         </form>
         </div></div>

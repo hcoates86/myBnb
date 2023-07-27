@@ -23,9 +23,9 @@ const ManageSpots = () => {
         dispatch(getSpots())
     }, [dispatch]);
 
-    useEffect(() => {
+    // useEffect(() => {
         
-    }, [spots]);
+    // }, [spots]);
 
     // if (!spots || !spots.length) return null;
 
@@ -34,13 +34,13 @@ const ManageSpots = () => {
     return (
         <div>
             <h1>Manage Spots</h1>
-            <Link to='/spots/new'>Create a New Spot</Link>
+            <Link to='/spots/new'><button className='button-grey'>Create a New Spot</button></Link>
 
             <div className='indexBox'>
             {spots.filter(spot => spot.ownerId === user.id).map((spot) => (
                 <>
                 <SpotsIndexItem spot={spot} key={spot.id}/>
-                <Link to={`/user/spots/${spot.id}`} key={spot.id}><button>Update</button></Link>
+                <Link to={`/user/spots/${spot.id}`} key={spot.id}><button className='button-grey butt-pad'>Update</button></Link>
                 <OpenModalMenuItem
                 itemText="Delete"
                 modalComponent={<ConfirmDeleteModal spotId={spot.id} />}

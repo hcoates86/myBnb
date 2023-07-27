@@ -29,9 +29,7 @@
   padding: 12px;
   border: solid black 2px;
   width: 350px;
-  box-shadow: 4px 4px 0px black;
   margin: 15px;
-  cursor: pointer;
 }
 
 .login-color {

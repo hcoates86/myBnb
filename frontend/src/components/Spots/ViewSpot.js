@@ -114,7 +114,7 @@ const ViewSpot = () => {
            <div className='reserve'>
             <p className='price'><span>${spot.price}</span> night</p>
             <p className='res-reviews'><span id="star">★</span>{avgStarS} &#183; {spot.numReviews} {numReviewsS}</p>
-            <button onClick={alertP} id='reserveButton'>Reserve</button>
+            <button onClick={alertP} className='button-orange' id='reserveButton'>Reserve</button>
           </div>
 
             <div className='spotDesc'>
