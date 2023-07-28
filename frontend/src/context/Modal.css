@@ -31,6 +31,14 @@
     margin: 5px;
 }
 
+.star-filled {
+  display: inline;
+  cursor: pointer;
+}
+
+.star-empty {
+  color: black;
+}
 /* .starSelect:hover {
 } */
 
