@@ -12,12 +12,12 @@ function ReviewModal({spotId}) {
     const [stars, setStars] = useState(0);
   const [buttonClass, setButtonClass] = useState('');
 
-    const starDiv1 = document.querySelectorAll('.one');
+    const starDiv1 = document.querySelector('.one');
 
-    // useEffect (() => {
-    //     if (stars >= 1 ) starDiv1.innerText = '★'
+    useEffect (() => {
+        if (stars >= 1 ) starDiv1.innerText = '★'
         
-    // }, [stars])
+    }, [stars])
 
     useEffect(()=> {
         const errorObj = {};
