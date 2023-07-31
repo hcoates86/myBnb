@@ -1,5 +1,4 @@
 import {csrfFetch} from './csrf';
-import { useParams } from 'react-router-dom';
 
 const SPOT_REVIEWS = 'reviews/getSpotReviews';
 const USER_REVIEWS = 'reviews/userReviews';
@@ -35,9 +34,9 @@ const postNewReview = (newReview) => {
 }
 
 export const postReview = (newReview) => async (dispatch) => {
-    // const { spotId } = useParams();
     const { review, stars, spotId } = newReview;
-    const res = await csrfFetch(`api/spots/${spotId}/reviews`, {
+    const res = await csrfFetch(`/api/spots/${spotId}/reviews`, {
+
         method: 'POST',
         body: JSON.stringify({
             review, 

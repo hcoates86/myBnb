@@ -60,9 +60,13 @@ function ReviewModal({spotId}) {
         setStars(+num);
     }
 
-    const postYourReview = () => {
+    const postYourReview = async () => {
        const newReview = {review, stars, spotId}
-       return (dispatch(postReview(newReview))).then(closeModal)
+    //    return (dispatch(postReview(newReview))).then(closeModal)
+        const reviewSent = await dispatch(postReview(newReview));
+        console.log('checkthis', await reviewSent)
+        // console.log('stuff', review, stars, spotId)
+        closeModal();
     };
   
 
@@ -82,7 +86,6 @@ function ReviewModal({spotId}) {
         />
         <div className='starSelect'>
             <div className='star-filled one' onClick={()=> {starChecker('1')}}>☆</div>
-            {console.log(stars)}
             <div className='star-filled two' onClick={()=> {starChecker('2')}}>☆</div>
             <div className='star-filled three' onClick={()=> {starChecker('3')}}>☆</div>
             <div className='star-filled four' onClick={()=> {starChecker('4')}}>☆</div>

@@ -32,9 +32,9 @@ const ViewSpot = () => {
 
     useEffect(() => {
       dispatch(fetchSpot(spotId));
-      dispatch(getSpotReviews(spotId)); //might have to place in own useeffect to see review changes on post
+      dispatch(getSpotReviews(spotId));
       dispatch(getUserReviews());
-    }, [dispatch, spot]);
+    }, [dispatch]);
 
     const user = useSelector((state) => {
       return state.session.user
@@ -125,13 +125,13 @@ const ViewSpot = () => {
         </div>
         <div>
           <h1><span id="star2">★</span> {avgStarS} &#183; {spot.numReviews} {numReviewsS}</h1>
-          {thisUser && reviewExists && !user ? (
+          {thisUser || reviewExists || !user ? (
             <></>
           ) : (
           <>
           <OpenModalMenuItem
                 itemText="Post Your Review"
-                modalComponent={<ReviewModal spotId={spot.id}/>}
+                modalComponent={<ReviewModal spotId={spotId}/>}
                 />
             
             
