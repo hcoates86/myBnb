@@ -36,7 +36,12 @@
   cursor: pointer;
 }
 
+#starSpan {
+  font-size: .8em;
+}
+
 #postRevButton {
-  padding: 5px;
+  padding: 15px;
   margin-bottom: 15px;
+  width: 100%;
 }

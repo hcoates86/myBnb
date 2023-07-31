@@ -56,3 +56,7 @@ h1, h2, h3 {
   padding: 10px;
   margin-bottom: 15px;
 }
+
+.padding {
+  padding: 15px;
+}

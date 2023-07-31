@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchSpot } from '../../store/spots';
 import { getUserReviews, getSpotReviews } from '../../store/reviews';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import OpenModalMenuItem from '../Navigation/OpenModalMenuItem';
 import ConfirmDeleteReviewModal from '../ConfirmDeleteReviewModal';
 import ReviewModal from '../ReviewModal';
@@ -22,6 +21,8 @@ const ViewSpot = () => {
     //sets number of reviews -- 0 for 0, 1 for 1, 2 for more than 1
     const [reviewNumber, setReviewNumber] = useState(0);
     const [numReviewsS, setNumReviewsS] = useState('Reviews');
+    //changes on delete and post to re-render
+    const [reviewLeft, setReviewLeft] = useState(null);
 
     const alertP = () => alert('Feature Coming Soon...');
 
@@ -125,18 +126,15 @@ const ViewSpot = () => {
         </div>
         <div>
           <h1><span id="star2">★</span> {avgStarS} &#183; {spot.numReviews} {numReviewsS}</h1>
-          {thisUser || reviewExists || !user ? (
-            <></>
-          ) : (
-          <>
+          {(user && !thisUser) || (!reviewExists && user) ? (
           <OpenModalMenuItem
                 itemText="Post Your Review"
                 modalComponent={<ReviewModal spotId={spotId}/>}
                 />
             
             
-          </>
-          )}
+          ) : <></>
+        }
 
           {reviewNumber ? (<></>)
           : (

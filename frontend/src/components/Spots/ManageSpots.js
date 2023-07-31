@@ -38,14 +38,16 @@ const ManageSpots = () => {
 
             <div className='indexBox'>
             {spots.filter(spot => spot.ownerId === user.id).map((spot) => (
-                <>
+                <div id='manageSpotDiv'>
                 <SpotsIndexItem spot={spot} key={spot.id}/>
-                <Link to={`/user/spots/${spot.id}`} key={spot.id}><button className='button-grey butt-pad'>Update</button></Link>
+                <div className='updateDeleteButtons'>
+                <Link to={`/user/spots/${spot.id}`} key={spot.id}><button id='updateButtonManage' className='button-grey butt-pad'>Update</button></Link>
                 <OpenModalMenuItem
                 itemText="Delete"
                 modalComponent={<ConfirmDeleteModal spotId={spot.id} />}
                 />
-                </>
+                </div>
+                </div>
             ))}
         </div>
 

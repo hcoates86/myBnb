@@ -41,8 +41,9 @@ const ManageReviews = () => {
     if (!spots) return null;
 
     function spotNameFinder(reviewId) {
-            const spotName = spots.filter((spot) => spot.id === reviewId)
-            return spotName[0].name;
+            const spotName = spots.filter((spot) => spot.id === reviewId)[0]
+            if(!spotName) return null;
+            return spotName.name;
     }
     
     return (

@@ -181,3 +181,16 @@
 #review-box {
   margin-bottom: 3%;
 }
+
+#manageSpotDiv {
+  display: inline-block;
+}
+
+.updateDeleteButtons {
+  margin-left: 30px;
+  
+}
+
+#updateButtonManage {
+  margin-right: 2.5%;
+}

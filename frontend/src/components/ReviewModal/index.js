@@ -19,6 +19,17 @@ function ReviewModal({spotId}) {
     const starDiv4 = document.querySelector('.four');
     const starDiv5 = document.querySelector('.five');
 
+
+    useEffect(() => {
+        disabled ? setButtonClass('') : setButtonClass('button-orange')
+    }, [disabled])
+
+
+    useEffect (() => {
+        if(review.length >= 10 && stars) setDisabled(false);
+        if(review.length < 10) setDisabled(true);
+        if(!stars) setDisabled(true);
+    }, [review, stars])
     
 
     useEffect (() => {
@@ -42,19 +53,18 @@ function ReviewModal({spotId}) {
 
     
 
-    useEffect(()=> {
-        const errorObj = {};
-        setErrors(errorObj)
-        if (!Object.values(errorObj).length) {
-            setDisabled(false);
-            setButtonClass('button-orange')
-            } if (Object.values(errorObj).length) {
-                setDisabled(true);
-                setButtonClass('');
-            }
-    }, [])
+    // useEffect(()=> {
+    //     const errorObj = {};
+    //     setErrors(errorObj)
+    //     if (!Object.values(errorObj).length) {
+    //         setDisabled(false);
+    //         setButtonClass('button-orange')
+    //         } if (Object.values(errorObj).length) {
+    //             setDisabled(true);
+    //             setButtonClass('');
+    //         }
+    // }, [])
 
-// if (!starDiv1) return;
 //★☆
     const starChecker = (num) => {
         setStars(+num);
@@ -78,10 +88,10 @@ function ReviewModal({spotId}) {
 
         <p>{errors.message}</p>
         <textarea 
-            className='txtInput' 
+            className='' 
             value={review}
             onChange={(e) => setReview(e.target.value)}
-            rows="8" cols="65"
+            rows="8" cols="50"
             placeholder='Leave your review here...'
         />
         <div className='starSelect'>
@@ -90,7 +100,7 @@ function ReviewModal({spotId}) {
             <div className='star-filled three' onClick={()=> {starChecker('3')}}>☆</div>
             <div className='star-filled four' onClick={()=> {starChecker('4')}}>☆</div>
             <div className='star-filled five' onClick={()=> {starChecker('5')}}>☆</div>
-
+            <span id='starSpan'> Stars</span>
             </div>
         <button disabled={disabled} onClick={postYourReview} id='postRevButton' className={buttonClass}>Submit Your Review</button>
         </div>
