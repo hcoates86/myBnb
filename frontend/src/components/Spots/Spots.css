@@ -8,7 +8,6 @@
 #outer-box {
   width: 1000px;
   margin: auto;
-  border-bottom: black solid 2px;
 }
 
 .grid-container {
@@ -90,20 +89,6 @@
     text-align: center;
   }
 
-  .inner {
-  width: 1000px;
-  text-align: center;
-  }
-
-  label > .txtInput {
-    margin-left: 10px;
-    
-  }
-
-  #price {
-    display: inline-block;
-  }
-
   .errors {
     color: red
 }
@@ -112,10 +97,6 @@
 .imgtop {
   height: 350px;
   width: 350px;
-}
-
-.spotBox {
-  margin: 2em;
 }
 
 .marginForCard {
@@ -184,13 +165,24 @@
 
 #manageSpotDiv {
   display: inline-block;
+  margin: 2em;
 }
 
-.updateDeleteButtons {
-  margin-left: 30px;
-  
+#spotBoxId {
+  margin: 2em;
 }
 
 #updateButtonManage {
   margin-right: 2.5%;
+}
+
+.reviews-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
+}
+
+#bottom-separator {
+  border-bottom: black solid 2px;
+
 }

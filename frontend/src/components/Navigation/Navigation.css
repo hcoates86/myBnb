@@ -61,6 +61,7 @@
 }
 
 .profile-dropdown {
+  /* position: absolute; */
   border-radius: 2%;
   border: 3px solid black;
   height: auto;

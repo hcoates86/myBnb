@@ -65,8 +65,9 @@ const ViewSpot = () => {
     }, [reviewNumber, spot])
 
     useEffect(() => {
-      if (user && userReviews.filter(review => review.userId === user.id)) setReviewExists(true);
+      if (user && userReviews.filter(review => review.userId === user.id && review.spotId === spot.id).length) setReviewExists(true);
       else setReviewExists(false);
+      console.log(reviewExists)
     }, [userReviews, user])
 
   
@@ -100,6 +101,7 @@ const ViewSpot = () => {
       return (
         <>
         <div id='outer-box'>
+          <div id='bottom-separator'>
           <h1>{spot.name}</h1>
           <h3>{spot.city}, {spot.state}, {spot.country}</h3>
          
@@ -123,10 +125,18 @@ const ViewSpot = () => {
             <h2>Hosted by {spot.Owner.firstName} {spot.Owner.lastName}</h2>
             <p>{spot.description}</p>
             </div>
+        
         </div>
-        <div>
-          <h1><span id="star2">★</span> {avgStarS} &#183; {spot.numReviews} {numReviewsS}</h1>
-          {(user && !thisUser) || (!reviewExists && user) ? (
+
+        <div className=''>
+          <h1><span id="star2">★</span> {avgStarS} 
+          {avgStarS === 'New' ? (<></>) : (<>
+          &nbsp; &#183; &nbsp;{spot.numReviews} {numReviewsS}
+          </>)}
+          </h1>
+    
+          {(user && (!thisUser && !reviewExists)) ? (
+          // {(user && !thisUser) || (!reviewExists && user) ? (
           <OpenModalMenuItem
                 itemText="Post Your Review"
                 modalComponent={<ReviewModal spotId={spotId}/>}
@@ -143,6 +153,7 @@ const ViewSpot = () => {
             </>
           )}
           
+          <div className='reviews-container'>
        
           {reviews.map(review => (
             <div id='review-box' key={review.id}>
@@ -160,9 +171,11 @@ const ViewSpot = () => {
           }
             </div>
           ))}
-     
+     </div>
 
         </div>
+        </div>
+
         </>
       )
 }

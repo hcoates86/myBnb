@@ -60,3 +60,13 @@ h1, h2, h3 {
 .padding {
   padding: 15px;
 }
+
+.flexAlign {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.flex-align-row {
+  display: flex;
+  justify-content: space-evenly;
+}

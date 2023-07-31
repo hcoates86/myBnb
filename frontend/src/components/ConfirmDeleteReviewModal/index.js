@@ -9,8 +9,6 @@ function ConfirmDeleteReviewModal({reviewId}) {
     const { closeModal } = useModal();
     const [reviewLeft, setReviewLeft] = useState(null);
 
-
-
     const confirmDelete = () => {
       // return (dispatch(deleteReview(reviewId))).then(closeModal)
         setReviewLeft(false);

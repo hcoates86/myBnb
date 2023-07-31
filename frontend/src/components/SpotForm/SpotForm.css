@@ -4,6 +4,11 @@
   padding-top: 1em;
 }
 
+.borderBox2 {
+  border-bottom: solid 2px;
+  padding-top: 1em;
+}
+
 #display {
   display: block;
 }
@@ -22,7 +27,6 @@ text-align: start;
 
 
 .txtInput {
-  /* margin-left: 10px; */
   width: 100%;
   display: inline-block;
   padding: 3px;
@@ -31,25 +35,41 @@ text-align: start;
 }
 
 .city-state {
-display: inline;
-width: 1000px;
+display: flex;
 }
 
 #city {
-width: 68%;
+width: 70%;
 }
 
 #state {
-width: 28%;
+width: 30%;
 }
 
 #createButton {
-  padding: 12px;
+  padding: 15px;
   width: 200px;
-  margin: 15px;
+  margin-top: 2em;
 }
 
 .errors {
   margin: 0;
   padding: 0;
+}
+
+#comma {
+  margin: 1%;
+  line-height: 65px;
+  font-size: 1.5em;
+}
+
+#price {
+  display: flex;
+}
+
+#moneySign {
+  font-weight: bold;
+  font-size: 1.3em;
+  margin-right: 2%;
+  line-height: 135%;
 }

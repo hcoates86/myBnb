@@ -107,7 +107,7 @@ const SpotForm = () => {
         <div className='outer'>
         <div className='inner'>
         <form id='display' onSubmit={handleSubmit}>
-        <div className='borderBox'>
+        <div className='borderBox2'>
         <h1>Create a New Spot</h1>
         <h2>Where's your place located?</h2>
         <p>Guests will only get your exact address once they booked a reservation.</p>
@@ -117,30 +117,31 @@ const SpotForm = () => {
             <input type='text' className='txtInput' 
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
-                placeholder='country' 
+                placeholder='Country' 
                 />
         </div>
         </label>
 
-        <label>Address <span className='errors' hidden>{errors.address}</span>
+        <label>Street Address <span className='errors' hidden>{errors.address}</span>
         <div id='address'>
             <input type='text' className='txtInput' 
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
-                placeholder='address' />
+                placeholder='Address' />
         </div>
         </label>
 
     <div className='city-state'>
-        <div id='city'>
+        <div id='City'>
             <label>City <span className='errors' hidden>{errors.city}</span>
             
                 <input type='text' className='txtInput' 
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
-                    placeholder='city' />
+                    placeholder='City' />
             
             </label></div>
+            <p id='comma'>,</p>
             <div id='state'>
             <label>State <span className='errors' hidden>{errors.state}</span>
             
@@ -200,13 +201,13 @@ const SpotForm = () => {
         <h2>Set a base price for your spot</h2>
         <p>Competitive pricing can help your listing stand out and rank higher in search results.</p>
         <div id='price'>
-            <label><strong>$ </strong>
+            <label id='moneySign'>$</label>
             <input type='number' 
                 className='txtInput' 
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
                 placeholder='Price per night (USD)' />
-            </label>
+            
         </div>
         <p className='errors' hidden>{errors.price}</p>
         </div>
@@ -244,7 +245,7 @@ const SpotForm = () => {
             <p className='errors' hidden>{errors.imgurl4}</p>
             </div>
 
-        <div>
+        <div className='flexAlign'>
         <input type='submit' className='button-orange' id='createButton' value='Create Spot' />
         </div>
         </form>
