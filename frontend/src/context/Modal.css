@@ -36,12 +36,6 @@
   cursor: pointer;
 }
 
-.star-empty {
-  color: black;
-}
-/* .starSelect:hover {
-} */
-
 #postRevButton {
   padding: 5px;
   margin-bottom: 15px;
