@@ -33,9 +33,10 @@ const ManageSpots = () => {
 
     return (
         <div>
+            <div className='manage-spots-div'>
             <h1>Manage Spots</h1>
             <Link to='/spots/new'><button className='button-grey'>Create a New Spot</button></Link>
-
+            </div>
             <div className='indexBox'>
             {spots.filter(spot => spot.ownerId === user.id).map((spot) => (
                 <div id='manageSpotDiv'>

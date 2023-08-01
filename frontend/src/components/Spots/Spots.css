@@ -31,6 +31,17 @@
   grid-area: prev;
   width: 500px;
   height: 500px;
+  border-radius: 20px 0 0 20px;
+}
+
+img:nth-child(3) {
+border-radius: 0 20px 0 0;
+}
+
+img:nth-child(5) {
+border-radius: 0 0 20px 0;
+
+
 }
 
 .reserve {
@@ -184,5 +195,12 @@
 
 #bottom-separator {
   border-bottom: black solid 2px;
+}
 
+.manage-spots-div {
+  margin-left: 2em;
+}
+
+#check {
+  border-radius: 25%;
 }

@@ -19,6 +19,8 @@ function SignupFormModal() {
   const [errors, setErrors] = useState({});
   const [disabled, setDisabled] = useState(true);//this, & make it gray when disabled
   const [buttonClass, setButtonClass] = useState('');
+  //turns on when submit button is pushed to show errors
+  const [submitted, setSubmitted] = useState(false);
 
 
   const { closeModal } = useModal();
@@ -33,20 +35,23 @@ function SignupFormModal() {
     if (firstName.length < 1) errorObj['firstName'] = "All fields must be filled out";
     if (lastName.length < 1) errorObj['lastName'] = "All fields must be filled out";
     if (password !== confirmPassword) errorObj['confirmPassword'] = 'Passwords must match';
-    if (password.length < 6) errorObj['password'] = "Password must be at least 6 characters long"
-    setErrors(errorObj)
-    if (!Object.values(errorObj).length) {
-      setDisabled(false);
-      setButtonClass('button-orange')
-    } if (Object.values(errorObj).length) {
-      setDisabled(true)
-      setButtonClass('');
-    };
+    if (password.length < 6) errorObj['password'] = "Password must be at least 6 characters long";
+    if (submitted) { 
+      setErrors(errorObj) 
+      if (!Object.values(errorObj).length) {
+        setDisabled(false);
+        setButtonClass('button-orange')
+      } if (Object.values(errorObj).length) {
+        setDisabled(true)
+        setButtonClass('');
+      }
+    }
     }, [username, email, firstName, lastName, password, confirmPassword])
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setSubmitted(true);
     if (password === confirmPassword) {
       setErrors({});
       return dispatch(
