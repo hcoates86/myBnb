@@ -76,7 +76,7 @@ module.exports = {
     options.tableName = 'users';
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {
-      username: { [Op.in]: ['Demo-lition', 'FakeUser1', 'FakeUser2'] }
+      username: { [Op.in]: ['Demo-lition', 'bestmom', 'luvtrains20', 'poppop', 'oksure', 'woof'] }
     }, {});
   }
 };

@@ -39,7 +39,7 @@ module.exports = {
         lng: 3373.3,
         name: "Mom's Office",
         description: "A beautiful space with a couch and a hardwood desk. Please don't use the laptop.",
-        price: 555
+        price: 55
       },
       { ownerId: 3,
         address: '555 Fake St., Rm. 3',
@@ -60,8 +60,8 @@ module.exports = {
         lat: -220.5268,
         lng: -303.3246,
         name: 'Guest Bedroom',
-        description: "Has everything you need.",
-        price: 777
+        description: "Has everything you need for your stay.",
+        price: 77
       },
       { ownerId: 6,
         address: '555 Fake St.',
@@ -72,7 +72,7 @@ module.exports = {
         lng: -333.33765,
         name: "King's Bed",
         description: "Ok so it's just the one bed but it's great to curl up in. Can be moved anywhere in the living room.",
-        price: 49
+        price: 79
       },
       { ownerId: 2,
         address: '555 Fake St., Rm. 1',
@@ -83,7 +83,7 @@ module.exports = {
         lng: -373.33765,
         name: 'Master Bedroom',
         description: 'Features a Queen bed and 75" TV, just please no eating crackers in bed.',
-        price: 9999
+        price: 99
       },
       { ownerId: 1,
         address: '555.5 Fake St.',
@@ -105,7 +105,7 @@ module.exports = {
         lng: -373.33765,
         name: 'Garage',
         description: 'Plenty of space',
-        price: 899
+        price: 20
       },
       { ownerId: 1,
         address: '555.5 Fake St.',
@@ -118,7 +118,7 @@ module.exports = {
         description: "Privacy fence and a great view of the sky.",
         price: 4899
       },
-      { ownerId: 1, //10
+      { ownerId: 1,
         address: '555 Fake St.',
         city: 'Springfield',
         state: 'OR',
@@ -127,7 +127,7 @@ module.exports = {
         lng: -380.33765,
         name: 'My room closet',
         description: "Might not seem like much but there's enough room to hang your clothes and sleep.",
-        price: 899
+        price: 99
       }
     ], {});
   },
