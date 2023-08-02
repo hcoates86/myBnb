@@ -17,7 +17,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    options.tableName = 'spots';
+    options.tableName = 'Spots';
     return queryInterface.bulkInsert(options, [
       { ownerId: 1,
         address: '555 Fake St.',
@@ -96,7 +96,7 @@ module.exports = {
         description: "Second story, must be able to climb ladder. Sleeping bag and snacks included.",
         price: 4899
       },
-      { ownerId: 5,
+      { ownerId: 5, //8
         address: '555 Fake St., Rm. 5',
         city: 'Springfield',
         state: 'OR',
@@ -118,7 +118,7 @@ module.exports = {
         description: "Privacy fence and a great view of the sky.",
         price: 4899
       },
-      { ownerId: 1,
+      { ownerId: 1, //10
         address: '555 Fake St.',
         city: 'Springfield',
         state: 'OR',
@@ -139,7 +139,7 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    options.tableName = 'spots';
+    options.tableName = 'Spots';
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {
       city: { [Op.in]: ['Springfield'] }

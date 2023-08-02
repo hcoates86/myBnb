@@ -16,7 +16,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    options.tableName = 'spotimages';
+    options.tableName = 'SpotImages';
     return queryInterface.bulkInsert(options, [
       {
         spotId: 1,
@@ -24,38 +24,23 @@ module.exports = {
         preview: true
       },
       {
-        spotId: 10,
-        url: 'https://i.ibb.co/v32JVmZ/closet1.jpg',
-        preview: true
-      },
-      {
-        spotId: 10,
-        url: 'https://i.ibb.co/p3tx3KM/closet2.jpg',
-        preview: false
-      },
-      {
         spotId: 1,
         url: 'https://i.ibb.co/183tWXm/bathroom2.jpg',
         preview: false
       },
       {
-        spotId: 8,
-        url: 'https://i.ibb.co/2y8tBYH/garage1.jpg',
-        preview: true
-      },
-      {
-        spotId: 8,
-        url: 'https://i.ibb.co/7yq4G5W/garage1-2.jpg',
+        spotId: 1,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
         preview: false
       },
       {
-        spotId: 8,
-        url: 'https://i.ibb.co/jL3VKbh/garage2.jpg',
+        spotId: 1,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
         preview: false
       },
       {
-        spotId: 3,
-        url: 'https://i.ibb.co/7W5bQCS/garage2-1.jpg',
+        spotId: 1,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
         preview: false
       },
       {
@@ -69,9 +54,67 @@ module.exports = {
         preview: false
       },
       {
+        spotId: 2,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },{
+        spotId: 2,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },{
+        spotId: 2,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },
+      {
         spotId: 3,
         url: 'https://i.ibb.co/f40Ds35/orangeroom.jpg',
         preview: true
+      },
+      {
+        spotId: 3,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },
+      {
+        spotId: 3,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },
+      {
+        spotId: 3,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },
+      {
+        spotId: 3,
+        url: 'https://i.ibb.co/7W5bQCS/garage2-1.jpg',
+        preview: false
+      },
+      {
+        spotId: 4,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: true
+      },
+      {
+        spotId: 4,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },
+      {
+        spotId: 4,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },
+      {
+        spotId: 4,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },
+      {
+        spotId: 4,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
       },
       {
         spotId: 5,
@@ -79,9 +122,97 @@ module.exports = {
         preview: true
       },
       {
+        spotId: 5,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },
+      {
+        spotId: 5,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },
+      {
+        spotId: 5,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },
+      {
+        spotId: 5,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },
+      {
+        spotId: 6,
+        url: 'https://i1.wp.com/www.theandersonstudio.com/wp-content/uploads/2021/08/Resized-Anderson_Kiawah_230.jpg',
+        preview: true
+      },
+      {
+        spotId: 6,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },
+      {
+        spotId: 6,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },
+      {
+        spotId: 6,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },
+      {
+        spotId: 6,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },
+      {
+        spotId: 7,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },
+      {
+        spotId: 7,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },
+      {
+        spotId: 7,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },
+      {
+        spotId: 7,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },
+      {
         spotId: 7,
         url: 'https://www.trees.com/wp-content/uploads/files/inline-images/Ultimate-Treehouse-by-btm.jpg',
         preview: true
+      },{
+        spotId: 8,
+        url: 'https://i.ibb.co/2y8tBYH/garage1.jpg',
+        preview: true
+      },
+      {
+        spotId: 8,
+        url: 'https://i.ibb.co/7yq4G5W/garage1-2.jpg',
+        preview: false
+      },
+      {
+        spotId: 8,
+        url: 'https://i.ibb.co/jL3VKbh/garage2.jpg',
+        preview: false
+      },{
+        spotId: 8,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },
+      {
+        spotId: 8,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
       },
       {
         spotId: 9,
@@ -89,18 +220,33 @@ module.exports = {
         preview: true
       },
       {
-        spotId: 1,
+        spotId: 9,
         url: 'https://i.ibb.co/vvBssvb/NoImage.png',
         preview: false
       },
       {
-        spotId: 1,
+        spotId: 9,
         url: 'https://i.ibb.co/vvBssvb/NoImage.png',
         preview: false
       },
       {
-        spotId: 1,
+        spotId: 9,
         url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },
+      {
+        spotId: 9,
+        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        preview: false
+      },
+      {
+        spotId: 10,
+        url: 'https://i.ibb.co/v32JVmZ/closet1.jpg',
+        preview: true
+      },
+      {
+        spotId: 10,
+        url: 'https://i.ibb.co/p3tx3KM/closet2.jpg',
         preview: false
       },
       {
@@ -115,86 +261,6 @@ module.exports = {
       },
       {
         spotId: 10,
-        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
-        preview: false
-      },
-      {
-        spotId: 8,
-        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
-        preview: false
-      },
-      {
-        spotId: 8,
-        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
-        preview: false
-      },
-      {
-        spotId: 3,
-        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
-        preview: false
-      },
-      {
-        spotId: 3,
-        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
-        preview: false
-      },
-      {
-        spotId: 3,
-        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
-        preview: false
-      },
-      {
-        spotId: 2,
-        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
-        preview: false
-      },
-      {
-        spotId: 2,
-        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
-        preview: false
-      },
-      {
-        spotId: 2,
-        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
-        preview: false
-      },
-      {
-        spotId: 5,
-        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
-        preview: false
-      },
-      {
-        spotId: 5,
-        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
-        preview: false
-      },
-      {
-        spotId: 5,
-        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
-        preview: false
-      },
-      {
-        spotId: 5,
-        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
-        preview: false
-      },
-      {
-        spotId: 7,
-        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
-        preview: false
-      },
-      {
-        spotId: 7,
-        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
-        preview: false
-      },
-      {
-        spotId: 7,
-        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
-        preview: false
-      },
-      {
-        spotId: 7,
         url: 'https://i.ibb.co/vvBssvb/NoImage.png',
         preview: false
       },
@@ -209,10 +275,10 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    options.tableName = 'spotimages';
+    options.tableName = 'SpotImages';
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {
-      url: 'img.png'
+      spotId: { [Op.in]: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }
     }, {});
   }
 };

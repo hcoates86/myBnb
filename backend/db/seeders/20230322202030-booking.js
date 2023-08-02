@@ -17,7 +17,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    options.tableName = 'bookings';
+    options.tableName = 'Bookings';
 
     return queryInterface.bulkInsert(options, [
       {
@@ -43,10 +43,10 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    options.tableName = 'bookings';
+    options.tableName = 'Bookings';
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {
-      startDate: { [Op.in]: ['01/01/2021'] }
+      userId: { [Op.in]: [1] }
     }, {});
   }
 };
