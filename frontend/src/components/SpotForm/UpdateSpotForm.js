@@ -53,7 +53,7 @@ const UpdateSpotForm = () => {
         if (!aState) errorObj['state'] = 'State is required';
         if (!country) errorObj['country'] = 'Country is required';
         if (!name) errorObj['name'] = 'Name is required';
-        if (name.length > 50) errorObj['name'] = "Name can't be more than 50 characters long";
+        if (name?.length > 50) errorObj['name'] = "Name can't be more than 50 characters long";
         if (!description) errorObj['description'] = 'Description is required';
         if (!description > 30) errorObj['description'] = 'Description needs 30 or more characters';
         if (!price) errorObj['price'] = 'Price per night is required';       
@@ -81,6 +81,8 @@ const UpdateSpotForm = () => {
         //  prevImg, imgurl1, imgurl2, imgurl3, imgurl4
         ])
 
+        if(!(Object.values(spot).length)) return null;
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -88,7 +90,7 @@ const UpdateSpotForm = () => {
         errorClass.forEach(one => one.removeAttribute("hidden"));
 
             let spot = {
-                address, city, state: aState, country, lat: 1, lng: 1, name, description, price
+                address, city, state: aState, country, lat: 1, lng: 1, name, description, price, id:spotId
             }
 
             const updateSpot = await dispatch(updatedSpot(spot))
@@ -111,7 +113,7 @@ const UpdateSpotForm = () => {
             //     dispatch(postImage(newImg3));
             //     dispatch(postImage(newImg4));
    
-                history.push(`/spots/${updateSpot.id}`);
+                history.push(`/spots/${spotId}`);
             //  }
     }
 
@@ -131,17 +133,17 @@ const UpdateSpotForm = () => {
             <input type='text' className='txtInput' 
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
-                placeholder='country' 
+                placeholder='Country' 
                 />
         </div>
         </label>
 
-        <label>Address <span className='errors' hidden>{errors.address}</span>
+        <label>Street Address <span className='errors' hidden>{errors.address}</span>
         <div id='address'>
             <input type='text' className='txtInput' 
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
-                placeholder='address' />
+                placeholder='Address' />
         </div>
         </label>
 
@@ -152,9 +154,10 @@ const UpdateSpotForm = () => {
                 <input type='text' className='txtInput' 
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
-                    placeholder='city' />
+                    placeholder='City' />
             
             </label></div>
+            <p id='comma'>,</p>
             <div id='state'>
             <label>State <span className='errors' hidden>{errors.state}</span>
             
@@ -214,13 +217,12 @@ const UpdateSpotForm = () => {
         <h2>Set a base price for your spot</h2>
         <p>Competitive pricing can help your listing stand out and rank higher in search results.</p>
         <div id='price'>
-            <label><strong>$ </strong>
+        <label id='moneySign'>$</label>
             <input type='number' 
                 className='txtInput' 
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
                 placeholder='Price per night (USD)' />
-            </label>
         </div>
         <p className='errors' hidden>{errors.price}</p>
         </div>
@@ -258,8 +260,8 @@ const UpdateSpotForm = () => {
             <p className='errors' hidden>{errors.imgurl4}</p>
             </div> */}
 
-        <div>
-        <input type='submit' id='updateButton' value='Update your Spot' />
+        <div className='flexAlign'>
+        <input type='submit' className='button-orange' id='update-button' value='Update your Spot' />
         </div>
         </form>
         </div></div>

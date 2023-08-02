@@ -132,7 +132,7 @@ const SpotForm = () => {
         </label>
 
     <div className='city-state'>
-        <div id='City'>
+        <div id='city'>
             <label>City <span className='errors' hidden>{errors.city}</span>
             
                 <input type='text' className='txtInput' 
