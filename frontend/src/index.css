@@ -6,7 +6,8 @@ h1, h2, h3 {
 }
 
 .errors {
-    color: red
+    color: red;
+    margin: 0;
 }
 
 .hidden {

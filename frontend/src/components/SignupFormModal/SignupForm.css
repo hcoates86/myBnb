@@ -7,16 +7,12 @@
     display: flex;
     border-radius: 25px;
     justify-content: center;
-    height: 650px;
+    height: 100%;
     flex-direction: column;
     width: 400px;
   
 }
 
-#signup-h1 {
-    margin: 0;
-
-}
 
 .signup-input{
     display: inline-block;

@@ -21,11 +21,10 @@ function LoginFormModal() {
       .then(closeModal)
       .catch(async (res) => {
         const data = await res.json();
-        console.log(data); //test
+        const login = {login: "The provided credentials were invalid"}
+          setErrors(login)
         if (data && data.errors) {
           setErrors(data.errors);
-          const login = {login: "The provided credentials were invalid"}
-          setErrors(login)
         }
       });
       
@@ -46,7 +45,7 @@ function LoginFormModal() {
   }, [credential, password])
 
   useEffect(() => {
-    if (!disabled) setColor('login-color');
+    if (!disabled) setColor('button-orange');
     if (disabled) setColor('');
   }, [disabled])
 
@@ -56,7 +55,9 @@ function LoginFormModal() {
     <div className="login-box">
       <h1 id='login-h1'>Log In</h1>
 
-      <p className="errors highlight">{errors.login}</p>
+      <div>
+      <p className="errors">{errors.login}</p>
+      </div>
       <form onSubmit={handleSubmit}>
         <label >
           <input

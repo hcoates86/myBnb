@@ -36,15 +36,24 @@ function SignupFormModal() {
     if (lastName.length < 1) errorObj['lastName'] = "All fields must be filled out";
     if (password !== confirmPassword) errorObj['confirmPassword'] = 'Passwords must match';
     if (password.length < 6) errorObj['password'] = "Password must be at least 6 characters long";
-    if (submitted) { 
-      setErrors(errorObj) 
-      if (!Object.values(errorObj).length) {
-        setDisabled(false);
-        setButtonClass('button-orange')
-      } if (Object.values(errorObj).length) {
+
+    if (!email || !firstName || !lastName || !confirmPassword || username.length < 4 || password.length < 6) {
         setDisabled(true)
         setButtonClass('');
+      } else {
+        setDisabled(false);
+        setButtonClass('button-orange')
       }
+
+    if (submitted) {
+      setErrors(errorObj) 
+      // if (!Object.values(errorObj).length) {
+        
+        
+      // } if (Object.values(errorObj).length) {
+        
+        
+      // } 
     }
     }, [username, email, firstName, lastName, password, confirmPassword])
 
