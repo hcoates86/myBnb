@@ -10,6 +10,7 @@ function ReviewModal({spotId}) {
     const [disabled, setDisabled] = useState(true);
     const [review, setReview] = useState('');
     const [stars, setStars] = useState(0);
+    const [filled, setFilled] = useState('☆');
     
   const [buttonClass, setButtonClass] = useState('');
 
