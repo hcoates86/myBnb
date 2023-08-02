@@ -45,7 +45,6 @@ function ReviewModal({spotId}) {
             if (stars < 3) starDiv3.innerText = '☆';
             if (stars < 4) starDiv4.innerText = '☆';
             if (stars < 5) starDiv5.innerText = '☆';
-
         }
         
     }, [stars])

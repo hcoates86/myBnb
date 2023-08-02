@@ -80,9 +80,6 @@ function LoginFormModal() {
           />
         </label>
         
-        {/* {errors.credential && (
-          <p>{errors.credential}</p>
-        )} */}
         <button type="submit"
                 id="login-button"
                 className={color}

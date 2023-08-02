@@ -53,20 +53,20 @@ module.exports = {
         price: 599
       },
       { ownerId: 4,
-        address: '123 Riverside Road',
-        city: 'Rio',
-        state: 'Brazil',
-        country: 'Brazil',
+        address: '555 Fake St.',
+        city: 'Springfield',
+        state: 'OR',
+        country: 'United States',
         lat: -220.5268,
         lng: -303.3246,
-        name: 'Beautiful House',
-        description: "One house, everything you need.",
+        name: 'Guest Bedroom',
+        description: "Has everything you need.",
         price: 777
       },
       { ownerId: 6,
         address: '555 Fake St.',
         city: 'Springfield',
-        state: 'OH',
+        state: 'OR',
         country: 'United States',
         lat: 232.524564,
         lng: -333.33765,
@@ -142,7 +142,7 @@ module.exports = {
     options.tableName = 'spots';
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {
-      address: { [Op.in]: ['559 Fake St.', '555 Fake St.', '123 Riverside Road'] }
+      city: { [Op.in]: ['Springfield'] }
     }, {});
   }
 };
