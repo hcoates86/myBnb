@@ -8,23 +8,26 @@ const router = express.Router();
 
 const bodyVal = async (req, res, next) => {
   const { address, city, state, country, lat, lng, name, description, price } = req.body;
-  const errors = [];
+  // const errors = [];
+  const errors = {};
   const err = new Error();
-  err.title = "Body validation error";
-  err.message = "Validation Error";
-  err.status = 400;
-  if (!name) errors.push("Name is required");
-  else if (name.length > 50) errors.push("Name must be less than 50 characters");
-  if (!address) errors.push("Street address is required");
-  if (!city) errors.push("City is required");
-  if (!state) errors.push("State is required");
-  if (!country) errors.push("Country is required");
+  // err.title = "Body validation error";
+  // err.message = "Validation Error";
+  // err.status = 400;
+  if (!name) errors["name"] = "Name is required";
+  else if (name.length > 50) errors["name"]("Name must be less than 50 characters");
+  if (!address) errors["address"]("Street address is required");
+  if (!city) errors["city"]("City is required");
+  if (!state) errors["state"]("State is required");
+  if (!country) errors["country"]("Country is required");
   // if (!lat || typeof lat !== 'number') errors.push("Latitude is not valid");
   // if (!lng || typeof lng !== 'number') errors.push("Longitude is not valid");
-  if (!description) errors.push("Description is required");
-  if (!price) errors.push("Price per day is required");
-  if (errors.length) {
-    err.errors = errors;
+  if (!description) errors["description"]("Description is required");
+  if (!price) errors["price"]("Price per day is required");
+  if (Object.values(errors).length) {
+    err = {...errors, title: "Body validation error",
+    message: "Validation Error",
+    status: 400};
     next(err)
   } next()
 }
