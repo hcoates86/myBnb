@@ -154,6 +154,9 @@ const newReview = await Review.create({
   review, stars
 })
 
+// newReview.User = await User.findByPk(newReview.userId, {attributes: ['id', 'firstName', 'lastName']});
+// review.ReviewImages = await currReview.getReviewImages({attributes: ['id', 'url']}) || null;
+
 res.status(201);
 res.json(newReview)
 

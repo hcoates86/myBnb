@@ -45,8 +45,6 @@ export const postReview = (newReview) => async (dispatch) => {
     });
     if (res.ok) {
         const review = await res.json();
-        console.log('response',res);
-        console.log(review);
         dispatch(postNewReview(review))
         return review
     } else {
@@ -93,7 +91,7 @@ export const deleteReview = (reviewId) => async (dispatch) => {
     }
 }
 
-
+//don't change reviews.spot on post?? or add addtl info from other state if possible...?
 
 const initialState = {spot: {}, user: {} }
 
@@ -101,27 +99,27 @@ const reviewReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case SPOT_REVIEWS:
-            newState = {spot:{}};
+            newState = {spot:{...state.spot}};
             if (action.reviews.Reviews) {
             action.reviews.Reviews.forEach(review => {
                 newState.spot[review.id] = review
             })} else newState.spot = null;
             return {...state, ...newState};
         case USER_REVIEWS:
-            newState = {user:{}};
+            newState = {user:{...state.user}};
             if (action.reviews.Reviews) {
                 action.reviews.Reviews.forEach(review => {
                 newState.user[review.id] = review
             })} else newState.user = null;
             return {...state, ...newState};
         case DELETE_REVIEW:
-            newState = {...state};
+            newState = {...state, spot: {...state.spot}, user: {...state.user} };
             delete newState.spot[action.reviewId];
             delete newState.user[action.reviewId];
             return newState;
         case POST_REVIEW:
-            newState = {...state};
-            newState.spot = {...newState.spot, [action.review.id]:{...action.review}};
+            newState = {...state, spot: {...state.spot}, user: {...state.user}};
+            // newState.spot = {...newState.spot, [action.review.id]:{...action.review}};
             newState.user = {...newState.user, [action.review.id]:{...action.review}};
             return newState;
         default:
