@@ -149,7 +149,7 @@ if (revs && revs.length) {
 }
 
 const newReview = await Review.create({
-  spotId: req.params.spotId,
+  spotId: +req.params.spotId,
   userId: req.user.id,
   review, stars
 })

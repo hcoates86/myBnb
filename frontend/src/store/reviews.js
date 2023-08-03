@@ -26,10 +26,10 @@ const removeReview = (reviewId) => {
     }
 }
 
-const postNewReview = (newReview) => {
+const postNewReview = (review) => {
     return {
         type: POST_REVIEW,
-        newReview
+        review
     }
 }
 
@@ -45,6 +45,8 @@ export const postReview = (newReview) => async (dispatch) => {
     });
     if (res.ok) {
         const review = await res.json();
+        console.log('response',res);
+        console.log(review);
         dispatch(postNewReview(review))
         return review
     } else {
@@ -69,6 +71,7 @@ export const getUserReviews = () => async (dispatch) => {
     const res = await csrfFetch('/api/session/reviews');
     if (res.ok) {
         const reviews = await res.json()
+        // console.log('response',res);
         dispatch(userReviews(reviews))
     } else {
         const errors = await res.json();
@@ -118,8 +121,8 @@ const reviewReducer = (state = initialState, action) => {
             return newState;
         case POST_REVIEW:
             newState = {...state};
-            newState.spot = {...newState.spot, ...action.review};
-            newState.user = {...newState.user, ...action.review};
+            newState.spot = {...newState.spot, [action.review.id]:{...action.review}};
+            newState.user = {...newState.user, [action.review.id]:{...action.review}};
             return newState;
         default:
             return state;

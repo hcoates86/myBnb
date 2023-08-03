@@ -84,7 +84,7 @@ function ReviewModal({spotId}) {
         <div className="del-modal">
         <h1>How was your stay?</h1>
         <p className='errors'></p>
-        {console.log('error-log!!!', errors)}
+        {/* {console.log('error-log!!!', errors)} */}
 
         <p>{errors.message}</p>
         <textarea 

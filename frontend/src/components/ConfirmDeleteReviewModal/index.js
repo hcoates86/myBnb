@@ -2,17 +2,24 @@ import { useDispatch } from 'react-redux';
 import { deleteReview } from '../../store/reviews';
 import { useModal } from "../../context/Modal";
 import { useEffect, useState } from 'react';
+import { getUserReviews } from '../../store/reviews';
 
 
-function ConfirmDeleteReviewModal({reviewId}) {
+
+function ConfirmDeleteReviewModal({reviewId, userReviews}) {
     const dispatch = useDispatch();
     const { closeModal } = useModal();
-    const [reviewLeft, setReviewLeft] = useState(null);
+    // const [reviewRemoved, setReviewRemoved] = useState(null);
 
-    const confirmDelete = () => {
+    useEffect(() => {
+        dispatch(getUserReviews())
+
+    }, [userReviews])
+
+    const confirmDelete = async () => {
       // return (dispatch(deleteReview(reviewId))).then(closeModal)
-        setReviewLeft(false);
-        dispatch(deleteReview(reviewId));
+        await dispatch(deleteReview(reviewId));
+        // setReviewRemoved(reviewId);
         closeModal();
     };
   

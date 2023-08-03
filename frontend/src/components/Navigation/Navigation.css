@@ -38,20 +38,21 @@
     text-decoration: none;
     color: black;
     font-family: 'Gloria Hallelujah', cursive;
-    font-size: 1.9em;
+    font-size: 1.7em;
     position: absolute;
-  top: 12px;
-  left: 85px;
+  top: 13px;
+  left: 75px;
 }
 
-.navlogo-container {
+/* .navlogo-container {
   height: 64px;
-}
+} */
 
 .logo-nav {
   position: absolute;
-  top: 8px;
+  top: 13px;
   left: 20px;
+  height: 50px;
 }
 
 .profile-dropdown > li {
@@ -92,7 +93,7 @@
 }
 
 .menu-button {
-  border: 2px solid black;
-  padding: 5px;
-  border-radius: 50%;
+  border: 1px solid black;
+  padding: 7px;
+  border-radius: 25px;
 }

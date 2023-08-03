@@ -45,6 +45,8 @@ const ManageReviews = () => {
             if(!spotName) return null;
             return spotName.name;
     }
+
+    const refreshPage = () => window.location.reload();
     
     return (
         <div>
@@ -59,7 +61,8 @@ const ManageReviews = () => {
                 <Link to={`/reviews/${review.id}`} key={review.id}><button className='button-grey butt-pad'>Update</button></Link>
                 <OpenModalMenuItem
                 itemText="Delete"
-                modalComponent={<ConfirmDeleteReviewModal reviewId={review.id} />}
+                modalComponent={<ConfirmDeleteReviewModal reviewId={review.id} userReviews={userReviews} 
+                />}
                 />
                 </div>
             ))}
