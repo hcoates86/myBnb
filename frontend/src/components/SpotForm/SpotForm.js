@@ -78,6 +78,10 @@ const SpotForm = () => {
             }
 
             const newSpot = await dispatch(createSpot(spot))
+
+            console.log('@@@@@',newSpot.errors);
+            console.log('!!!!!',newSpot);
+
             if ('id' in  newSpot) {
                 let newImgPrev = {url: prevImg, preview: true, spotId: newSpot.id};
                 let newImg1 = {url: imgurl1 || noImgUrl, preview: false, spotId: newSpot.id};
@@ -246,6 +250,7 @@ const SpotForm = () => {
             </div>
 
         <div className='flexAlign'>
+           
         <input type='submit' className='button-orange' id='createButton' value='Create Spot' />
         </div>
         </form>
