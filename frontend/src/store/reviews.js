@@ -45,8 +45,12 @@ export const postReview = (newReview) => async (dispatch) => {
     });
     if (res.ok) {
         const review = await res.json();
-        dispatch(postNewReview(review))
-        return review
+
+        const fullRev = await csrfFetch('/api/session/reviews');
+        const fullRev2 = await fullRev.json();
+        const finalRev = fullRev2.Reviews.filter(rev => review.id === rev.id)[0]
+        dispatch(postNewReview(finalRev))
+        return finalRev
     } else {
         const errors = await res.json();
         return errors;
@@ -69,7 +73,6 @@ export const getUserReviews = () => async (dispatch) => {
     const res = await csrfFetch('/api/session/reviews');
     if (res.ok) {
         const reviews = await res.json()
-        // console.log('response',res);
         dispatch(userReviews(reviews))
     } else {
         const errors = await res.json();
@@ -119,7 +122,7 @@ const reviewReducer = (state = initialState, action) => {
             return newState;
         case POST_REVIEW:
             newState = {...state, spot: {...state.spot}, user: {...state.user}};
-            // newState.spot = {...newState.spot, [action.review.id]:{...action.review}};
+            newState.spot = {...newState.spot, [action.review.id]:{...action.review}};
             newState.user = {...newState.user, [action.review.id]:{...action.review}};
             return newState;
         default:

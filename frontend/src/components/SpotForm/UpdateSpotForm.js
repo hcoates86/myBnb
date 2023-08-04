@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { updatedSpot, fetchSpot } from '../../store/spots';
+import { updatedSpot, fetchSpot, getSpots } from '../../store/spots';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import './SpotForm.css';
@@ -8,21 +8,19 @@ const UpdateSpotForm = () => {
     const { spotId } = useParams();
     const history = useHistory();
     const dispatch = useDispatch();
-    const user = useSelector(state => {
-        return state.session.user
-     })
+    const [errors, setErrors] = useState({});
 
-    const spot = useSelector((state) => {
-       return state.spots.singleSpot;
-    })
+    const num = parseInt(spotId)
+    // const spot = useSelector((state) => {
+    //     return state.spots.singleSpot;
+    //     })
+    
+    const spots = Object.values(
+        useSelector((state) => (state.spots.allSpots 
+            ? state.spots.allSpots : []))
+    )
 
-    useEffect(() => {
-        dispatch(fetchSpot(spotId));
-      }, [dispatch, spotId])
-
-    // useEffect(() => {
-    //     dispatch(updatedSpot(spot));
-    //   }, [dispatch, spot]);
+    const spot = spots.filter(spot=> spot.id === num)[0]
 
     const [address, setAddress] = useState(spot.address);
     const [city, setCity] = useState(spot.city);
@@ -39,8 +37,20 @@ const UpdateSpotForm = () => {
     // const [imgurl3, setImgurl3] = useState('');
     // const [imgurl4, setImgurl4] = useState('');
 
-    const [errors, setErrors] = useState({});
-    
+    // const user = useSelector(state => {
+    //     return state.session.user
+    //  })
+
+
+    useEffect(() => {
+        dispatch(fetchSpot(spotId));
+        dispatch(getSpots())
+      }, [dispatch, spotId])
+
+    // useEffect(() => {
+    //     dispatch(updatedSpot(spot));
+    //   }, [dispatch, spot]);
+
     // let errorLog = {};
 
     useEffect(()=> {
@@ -80,8 +90,9 @@ const UpdateSpotForm = () => {
     }, [address, city, aState, country, name, description, price,
         //  prevImg, imgurl1, imgurl2, imgurl3, imgurl4
         ])
+    if(!(Object.values(spot).length)) return null;
+    
 
-        if(!(Object.values(spot).length)) return null;
 
     const handleSubmit = async (e) => {
         e.preventDefault();

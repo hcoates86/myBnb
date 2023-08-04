@@ -39,7 +39,7 @@ const ManageSpots = () => {
             </div>
             <div className='indexBox'>
             {spots.filter(spot => spot.ownerId === user.id).map((spot) => (
-                <div id='manageSpotDiv'>
+                <div id='manageSpotDiv' key={spot.id}>
                 <SpotsIndexItem spot={spot} key={spot.id}/>
                 <div>
                 <Link to={`/user/spots/${spot.id}`} key={spot.id}><button id='updateButtonManage' className='button-grey butt-pad'>Update</button></Link>

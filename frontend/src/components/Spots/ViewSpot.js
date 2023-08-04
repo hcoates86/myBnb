@@ -21,8 +21,7 @@ const ViewSpot = () => {
     //sets number of reviews -- 0 for 0, 1 for 1, 2 for more than 1
     const [reviewNumber, setReviewNumber] = useState(0);
     const [numReviewsS, setNumReviewsS] = useState('Reviews');
-    //changes on delete and post to re-render
-    const [reviewLeft, setReviewLeft] = useState(null);
+    const [avgStarS, setAvgStarS] = useState('New')
 
     const alertP = () => alert('Feature Coming Soon...');
 
@@ -61,8 +60,11 @@ const ViewSpot = () => {
       }
       if (reviewNumber === 1) setNumReviewsS("Review");
       if (reviewNumber !== 1) setNumReviewsS("Reviews");
+      if (!spot.avgStarRating) {
+        setAvgStarS("New")
+      } else setAvgStarS(spot.avgStarRating.toFixed(1))
 
-    }, [reviewNumber, spot])
+    }, [reviewNumber, spot, avgStarS])
 
     useEffect(() => {
       if (user && userReviews.filter(review => review.userId === user.id && review.spotId === spot.id).length) setReviewExists(true);
@@ -78,18 +80,16 @@ const ViewSpot = () => {
       } else setThisUser(false)
     }, [user, spot, thisUser])
 
+    // useEffect(() => {
+      
+    // })
+
     if (!spot || !spot.SpotImages || !spot.Owner) return null;
     // if (!user) return null;
     if (!reviews) return null;
 
     const spotImages = spot.SpotImages;
 
-    
-    let avgStarS;
-  
-    if (!spot.avgStarRating) {
-        avgStarS = "New"
-    } else avgStarS = spot.avgStarRating.toFixed(1)
 
     const months = ['0', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
