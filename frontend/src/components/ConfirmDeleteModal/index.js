@@ -7,7 +7,8 @@ function ConfirmDeleteModal({spotId}) {
     const { closeModal } = useModal();
 
     const confirmDelete = async () => {
-      return (await dispatch(removeSpot(spotId))).then(closeModal)
+       dispatch(removeSpot(spotId))
+       closeModal()
     };
   
 

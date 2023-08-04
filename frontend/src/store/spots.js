@@ -170,25 +170,24 @@ const spotReducer = (state = initialState, action) => {
             })
             return {...state, ...spotsState}
         case VIEW_SPOT:
-            newState = {...state};
+            newState = {...state, singleSpot: {...state.singleSpot}};
             newState.singleSpot = action.spot;
             return newState;
         case MAKE_SPOT:
-            newState = {...state}
-            newState.singleSpot = action.spot;
+            newState = {...state, allSpots: {...state.allSpots, ...action.spot}, singleSpot: {...state.singleSpot, ...action.spot}};
             return newState;
         case ADD_IMAGE:
-            newState = {...state};
+            newState = {...state, allSpots: {...state.allSpots}, singleSpot: {...state.singleSpot, SpotImages: [...state.singleSpot.SpotImages]}};;
             // const old = newState.singleSpot.SpotImages;
             newState.singleSpot.SpotImages = [...action.image];
             return newState;
         case UPDATE_SPOT:
-            newState = {...state}
+            newState = {...state, allSpots: {...state.allSpots}, singleSpot: {...state.singleSpot}};
             newState.allSpots[action.spot.id] = action.spot;
             let newState2 = {...state, ...newState}; //test this
             return newState2;
         case DELETE_SPOT:
-            newState = {...state};
+            newState = {...state, allSpots: {...state.allSpots}, singleSpot: {...state.singleSpot}};
             delete newState.allSpots[action.spotId];
             return newState;
         // case USER_SPOTS:
