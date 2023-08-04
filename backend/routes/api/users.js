@@ -32,21 +32,18 @@ const validateSignup = [
 const checkExists = async (req, res, next) => {
   const { email, username } = req.body;
   const err = new Error();
-  const errors = [];
 
   const email2 = await User.findOne({where:{email: email}})
     err.title = "User already exists";
-    err.message = "User already exists";
     err.status = 403;
   if (email2) {
-    errors.push("User with that email already exists")
+    err.message = "User with that email already exists";
   } 
   const user2 = await User.findOne({where:{username: username}})
   if (user2) {
-    errors.push("User with that username already exists")
+    err.message = "User with that username already exists";
   }
-  if (!errors.length) return next();
-  err.errors = errors;
+  if (!Object.values(err).length) return next();
   return next(err);
 }
 

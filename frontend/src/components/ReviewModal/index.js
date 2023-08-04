@@ -74,8 +74,6 @@ function ReviewModal({spotId}) {
        const newReview = {review, stars, spotId}
     //    return (dispatch(postReview(newReview))).then(closeModal)
         const reviewSent = await dispatch(postReview(newReview));
-        console.log('checkthis', await reviewSent)
-        // console.log('stuff', review, stars, spotId)
         closeModal();
     };
   

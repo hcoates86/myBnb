@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
-import * as sessionActions from "../../store/session";
+// import * as sessionActions from "../../store/session";
+import { signup } from "../../store/session";
 import "./SignupForm.css";
 import { useHistory } from 'react-router-dom';
 
@@ -17,7 +18,7 @@ function SignupFormModal() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
-  const [disabled, setDisabled] = useState(true);//this, & make it gray when disabled
+  const [disabled, setDisabled] = useState(true);
   const [buttonClass, setButtonClass] = useState('');
   //turns on when submit button is pushed to show errors
   const [submitted, setSubmitted] = useState(false);
@@ -51,32 +52,52 @@ function SignupFormModal() {
     }, [username, email, firstName, lastName, password, confirmPassword])
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitted(true);
-    if (password === confirmPassword) {
-      setErrors({});
-      return dispatch(
-        sessionActions.signup({
-          email,
-          username,
-          firstName,
-          lastName,
-          password,
-        })
-      )
-        .then(closeModal)
-        .then(history.push('/'))
-        .catch(async (res) => {
-          const data = await res.json();
-          if (data && data.errors) {
-            setErrors(data.errors);
-          }
-        });
-    }
-    return setErrors({
-      confirmPassword: "Confirm Password field must be the same as the Password field"
-    });
+
+    const data = await dispatch(signup({
+            email,
+            username,
+            firstName,
+            lastName,
+            password,
+          }));
+    
+          // const data = await signedUp.json()
+          if(data) console.log('!!DATA',data, 'errorshere', data.errors);
+         if (data && data.errors) {
+          setErrors(data.errors)
+        } else {
+          closeModal()
+          history.push('/')
+        }
+    
+    // if (password === confirmPassword) {
+    //   setErrors({});
+    //   return dispatch(
+    //     sessionActions.signup({
+    //       email,
+    //       username,
+    //       firstName,
+    //       lastName,
+    //       password,
+    //     })
+    //   )
+    //     .then(closeModal)
+    //     .then(history.push('/'))
+    //     .catch(async (res) => {
+    //       const data = await res.json();
+    //       if (data && data.errors) {
+    //         setErrors(data.errors);
+    //       }
+    //     });
+    // }
+    // return setErrors({
+    //   confirmPassword: "Confirm Password field must be the same as the Password field"
+    // });
+
+
   };
 
   return (
@@ -84,7 +105,7 @@ function SignupFormModal() {
       <div className="signup-box">
       <h1 id='signup-h1'>Sign Up</h1>
       <form onSubmit={handleSubmit}>
-
+      {/* <p>{Object.values(errors)}</p> */}
        
 
         <label>

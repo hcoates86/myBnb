@@ -69,7 +69,6 @@ const ViewSpot = () => {
     useEffect(() => {
       if (user && userReviews.filter(review => review.userId === user.id && review.spotId === spot.id).length) setReviewExists(true);
       else setReviewExists(false);
-      console.log(reviewExists)
     }, [userReviews, user])
 
   

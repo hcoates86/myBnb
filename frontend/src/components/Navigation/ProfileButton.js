@@ -34,9 +34,9 @@ function ProfileButton({ user }) {
 
   const closeMenu = () => setShowMenu(false);
 
-  const logout = (e) => {
+  const logout = async (e) => {
     e.preventDefault();
-    dispatch(sessionActions.logout());
+    await dispatch(sessionActions.logout());
     closeMenu();
     history.push('/');
   };

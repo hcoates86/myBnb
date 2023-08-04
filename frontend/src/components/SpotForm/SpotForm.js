@@ -79,9 +79,6 @@ const SpotForm = () => {
 
             const newSpot = await dispatch(createSpot(spot))
 
-            console.log('@@@@@',newSpot.errors);
-            console.log('!!!!!',newSpot);
-
             if ('id' in  newSpot) {
                 let newImgPrev = {url: prevImg, preview: true, spotId: newSpot.id};
                 let newImg1 = {url: imgurl1 || noImgUrl, preview: false, spotId: newSpot.id};
