@@ -56,7 +56,7 @@ const UpdateSpotForm = () => {
     useEffect(()=> {
         const errorObj = {};
         // const urlArray = [prevImg, imgurl1, imgurl2, imgurl3, imgurl4];
-        const fileTypes = ['.jpeg', '.png', '.jpg'];
+        // const fileTypes = ['.jpeg', '.png', '.jpg'];
 
         if (!address) errorObj['address'] = 'Address is required' ;
         if (!city) errorObj['city'] = 'City is required';

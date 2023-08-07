@@ -34,7 +34,7 @@ const ViewSpot = () => {
       dispatch(fetchSpot(spotId));
       dispatch(getSpotReviews(spotId));
       dispatch(getUserReviews());
-    }, [dispatch]);
+    }, [dispatch, spotId]);
 
     const user = useSelector((state) => {
       return state.session.user
@@ -69,8 +69,7 @@ const ViewSpot = () => {
     useEffect(() => {
       if (user && userReviews.filter(review => review.userId === user.id && review.spotId === spot.id).length) setReviewExists(true);
       else setReviewExists(false);
-      console.log(reviewExists)
-    }, [userReviews, user])
+    }, [userReviews, user, spot.id])
 
   
 

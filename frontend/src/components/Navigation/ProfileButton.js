@@ -56,9 +56,9 @@ function ProfileButton({ user }) {
         {user ? (
           <>
             <li>Hello, {user.username}</li>
-            <li>{user.email}</li>
-            <li><Link to='/user/spots' className="manageText" onClick={closeMenu}>Manage Spots</Link></li>
-            <li> <Link to='/user/reviews' className="manageText two" onClick={closeMenu}>Manage Reviews</Link></li>
+            <li> <div className="profile-border">{user.email}</div></li>
+            <li><div className="profile-border"><Link to='/user/spots' className="manageText" onClick={closeMenu}>Manage Spots</Link></div></li>
+            <li> <div className="profile-border"><Link to='/user/reviews' className="manageText two" onClick={closeMenu}>Manage Reviews</Link></div></li>
             <li className="manageText">
               <button onClick={logout} id="logout">Log Out</button>
             </li>

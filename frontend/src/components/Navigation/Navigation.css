@@ -2,7 +2,7 @@
   display: inline-block;
   position: sticky;
   width: 100%;
-  border-bottom: solid 2px rgb(159, 159, 159);
+  border-bottom: solid 1px rgb(159, 159, 159);
   height: 80px;
   margin-bottom: 30px;
   vertical-align: center;
@@ -62,9 +62,9 @@
 }
 
 .profile-dropdown {
-  /* position: absolute; */
-  border-radius: 2%;
-  border: 3px solid black;
+  border-radius: 15px;
+  border: 0;
+  box-shadow: 0 0 15px gainsboro;
   height: auto;
   min-width: 80px;
   width: 8em;
@@ -75,8 +75,14 @@
 
 .manageText {
   text-decoration: none;
-  border-top: 1px solid black;
   color: black;
+/* margin-top: 5px;
+   */
+}
+
+.profile-border {
+  border-bottom: 1px solid gainsboro;
+  padding-bottom: 10%;
 }
 
 #logout {

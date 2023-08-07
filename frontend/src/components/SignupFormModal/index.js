@@ -48,7 +48,7 @@ function SignupFormModal() {
     if (submitted) {
       setErrors(errorObj) 
     }
-    }, [username, email, firstName, lastName, password, confirmPassword])
+    }, [username, email, firstName, lastName, password, confirmPassword, submitted])
 
 
   const handleSubmit = (e) => {

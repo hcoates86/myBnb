@@ -49,7 +49,7 @@ const ManageReviews = () => {
     const refreshPage = () => window.location.reload();
     
     return (
-        <div>
+        <div className='manage-reviews-box'>
             <h1>Manage Reviews</h1>
 
             <div className='indexBox'>

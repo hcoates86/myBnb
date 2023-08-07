@@ -93,7 +93,7 @@ module.exports = {
       },
       {
         spotId: 4,
-        url: 'https://i.ibb.co/vvBssvb/NoImage.png',
+        url: 'http://hips.hearstapps.com/hmg-prod/images/guest-bedroom-ideas-hbx080122laurennelson-008-2-1663862856.jpg',
         preview: true
       },
       {

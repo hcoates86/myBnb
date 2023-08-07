@@ -14,7 +14,7 @@ function ConfirmDeleteReviewModal({reviewId, userReviews}) {
     useEffect(() => {
         dispatch(getUserReviews())
 
-    }, [userReviews])
+    }, [userReviews, dispatch])
 
     const confirmDelete = async () => {
       // return (dispatch(deleteReview(reviewId))).then(closeModal)
