@@ -93,6 +93,7 @@ function SignupFormModal() {
             type="text"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
+            maxLength='40'
             required
           />
         </label>
@@ -104,6 +105,7 @@ function SignupFormModal() {
             type="text"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
+            maxLength='40'
             required
           />
         </label>
@@ -115,6 +117,8 @@ function SignupFormModal() {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            minLength='3'
+            maxLength='256'
             required
           />
         </label>
@@ -126,6 +130,8 @@ function SignupFormModal() {
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            minLength='4'
+            maxLength='30'
             required
           />
         </label>

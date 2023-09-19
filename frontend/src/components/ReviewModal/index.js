@@ -50,37 +50,6 @@ function ReviewModal({spotId}) {
         
     }, [stars, starDiv1, starDiv2, starDiv3, starDiv4, starDiv5])
 
-    // useEffect(() => {
-    
-    //     if (mouseStar >= 1 ) starDiv1.innerText = '★';
-    //     if (mouseStar >= 2 ) starDiv2.innerText = '★';
-    //     if (mouseStar >= 3 ) starDiv3.innerText = '★';
-    //     if (mouseStar >= 4 ) starDiv4.innerText = '★';
-    //     if (mouseStar === 5 ) starDiv5.innerText = '★';
-
-    //     // if (stars >=1) {
-    //     //     if (stars < 2 && mouseStar > 2) starDiv2.innerText = '☆';
-    //     //     if (stars < 3) starDiv3.innerText = '☆';
-    //     //     if (stars < 4) starDiv4.innerText = '☆';
-    //     //     if (stars < 5) starDiv5.innerText = '☆';
-    //     // }
-        
-    // }), [mouseStar]
-    
-
-    // useEffect(()=> {
-    //     const errorObj = {};
-    //     setErrors(errorObj)
-    //     if (!Object.values(errorObj).length) {
-    //         setDisabled(false);
-    //         setButtonClass('button-orange')
-    //         } if (Object.values(errorObj).length) {
-    //             setDisabled(true);
-    //             setButtonClass('');
-    //         }
-    // }, [])
-
-//★☆
     const starChecker = (num) => {
         setStars(+num);
     }
@@ -105,6 +74,7 @@ function ReviewModal({spotId}) {
             onChange={(e) => setReview(e.target.value)}
             rows="8" cols="50"
             placeholder='Leave your review here...'
+            maxLength='1000'
         />
         <div className='starSelect'>
             <div className='star-filled one-star' 
